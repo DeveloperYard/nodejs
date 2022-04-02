@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div>모듈로 웹 소켓을 알아봅시다.</div>
+    <script>
+      const webSocket = new WebSocket("ws://localhost:8080");
+      webSocket.onopen = ()=>{
+        console.log("Web Socket Connected");
+      };
+      webSocket.onmessage = (event)=>{
+        console.log(event.data);
+        webSocket.send("This message from client");
+      };
+      
+    </script>
+  </body>
+</html>
